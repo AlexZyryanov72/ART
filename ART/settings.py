@@ -27,6 +27,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+try:
+    from .local_settings import *
+except:
+    pass
 
 # Application definition
 
@@ -128,3 +132,4 @@ MEDIA_ROOT = MEDIA_DIR
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
