@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="/static/fonts/News706 BT Bold.ttf">
     <title>Art .</title>
@@ -21,18 +21,19 @@
     <a class="logo" href="/"><img src="/static/images/ART_logo.png" alt="ART_logo.jpg"></a>
 </nav>
 
+<div class="form-search margin-left-15">
+    <form action="/search_autor/" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Поиск ">
+    </form>
+</div>
 
-<form>
-    <label>
-        <input type="text">
-    </label>
-    <input type="submit" value="Кнопка">
-</form>
-{% block title %}Поиск по автору{% endblock %}
+<p class="margin-left-15">Поиск по автору</p>
 {% block content %}
     {% for artist in all_artists %}
-        <div>
-            <a href=""> {{ artist.artist_name }} </a>
+        <div class="autor-search margin-left-15">
+            <a href=""><img src="{{ artist.artist_main_image.url  }}" width="300" height="200"alt="фото художника"></a>
+            <p class="margin-top-5"> {{ artist.artist_name }} </p>
         </div>
     {% endfor %}
 {% endblock %}
